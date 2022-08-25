@@ -21,7 +21,7 @@ let s:black           = { "gui": "#000000", "cterm": "232" }
 let s:medium_gray     = { "gui": "#767676", "cterm": "243" }
 let s:white           = { "gui": "#F1F1F1", "cterm": "15"  }
 let s:actual_white    = { "gui": "#FFFFFF", "cterm": "231" }
-let s:subtle_black    = { "gui": "#121212", "cterm": "233" }
+let s:subtle_black    = { "gui": "#0A0A0A", "cterm": "233" }
 let s:light_black     = { "gui": "#262626", "cterm": "235" }
 let s:lighter_black   = { "gui": "#4E4E4E", "cterm": "239" }
 let s:light_gray      = { "gui": "#A8A8A8", "cterm": "248" }
@@ -57,7 +57,7 @@ if &background == "dark"
   let s:cyan            = s:light_cyan
   let s:green           = s:light_green
   let s:red             = s:light_red
-  let s:visual          = s:light_pink
+  let s:visual          = s:black
   let s:yellow          = s:light_yellow
 else
   let s:bg              = s:actual_white
@@ -85,7 +85,7 @@ function! s:h(group, style)
     \ "cterm="   (has_key(a:style, "cterm") ? a:style.cterm    : "NONE")
 endfunction
 
-call s:h("Normal",        {"bg": s:bg, "fg": s:norm})
+call s:h("Normal",        {"fg": s:norm})
 
 " restore &background's value in case changing Normal changed &background (:help :hi-normal-cterm)
 if &background != s:background
@@ -93,7 +93,8 @@ if &background != s:background
 endif
 
 call s:h("Cursor",        {"bg": s:pink, "fg": s:norm })
-call s:h("Comment",       {"fg": s:bg_subtle, "gui": "italic"})
+call s:h("Comment",       {"fg": s:norm_subtle})
+" call s:h("Comment",       {"fg": s:bg_subtle, "gui": "italic"})
 
 call s:h("Constant",      {"fg": s:pink})
 hi! link Character        Constant
@@ -146,13 +147,13 @@ call s:h("Search",        {"bg": s:light_green, "fg": s:light_black})
 call s:h("MoreMsg",       {"fg": s:medium_gray, "cterm": "bold", "gui": "bold"})
 hi! link ModeMsg MoreMsg
 call s:h("LineNr",        {"fg": s:bg_subtle})
-call s:h("CursorLineNr",  {"fg": s:pink, "bg": s:bg_very_subtle})
+call s:h("CursorLineNr",  {"fg": s:bg_subtle, "bg": s:bg_very_subtle})
 call s:h("Question",      {"fg": s:red})
 call s:h("StatusLine",    {"bg": s:bg_very_subtle})
 call s:h("StatusLineNC",  {"bg": s:bg_very_subtle, "fg": s:medium_gray})
 call s:h("VertSplit",     {"bg": s:bg_very_subtle, "fg": s:bg_very_subtle})
-call s:h("Title",         {"fg": s:dark_blue})
-call s:h("Visual",        {"fg": s:norm, "bg": s:visual})
+call s:h("Title",         {"fg": s:dark_pink})
+call s:h("Visual",        {"fg": s:dark_pink, "bg": s:visual})
 call s:h("VisualNOS",     {"bg": s:bg_subtle})
 call s:h("WarningMsg",    {"fg": s:yellow})
 call s:h("WildMenu",      {"fg": s:bg, "bg": s:norm})
@@ -163,7 +164,6 @@ call s:h("DiffDelete",    {"fg": s:red})
 call s:h("DiffChange",    {"fg": s:dark_yellow})
 call s:h("DiffText",      {"fg": s:dark_blue})
 call s:h("SignColumn",    {"fg": s:light_green})
-
 
 if has("gui_running")
   call s:h("SpellBad",    {"gui": "underline", "sp": s:red})
@@ -188,15 +188,15 @@ call s:h("CursorColumn",  {"bg": s:bg_very_subtle})
 call s:h("CursorLine",    {"bg": s:bg_very_subtle})
 call s:h("ColorColumn",   {"bg": s:bg_subtle})
 
-call s:h("MatchParen",    {"bg": s:bg_subtle, "fg": s:norm})
+call s:h("MatchParen",    {"fg": s:dark_pink})
 call s:h("qfLineNr",      {"fg": s:medium_gray})
 
-call s:h("htmlH1",        {"bg": s:bg, "fg": s:norm})
-call s:h("htmlH2",        {"bg": s:bg, "fg": s:norm})
-call s:h("htmlH3",        {"bg": s:bg, "fg": s:norm})
-call s:h("htmlH4",        {"bg": s:bg, "fg": s:norm})
-call s:h("htmlH5",        {"bg": s:bg, "fg": s:norm})
-call s:h("htmlH6",        {"bg": s:bg, "fg": s:norm})
+call s:h("htmlH1",        {"fg": s:norm})
+call s:h("htmlH2",        {"fg": s:norm})
+call s:h("htmlH3",        {"fg": s:norm})
+call s:h("htmlH4",        {"fg": s:norm})
+call s:h("htmlH5",        {"fg": s:norm})
+call s:h("htmlH6",        {"fg": s:norm})
 
 " Syntastic
 call s:h("SyntasticWarningSign",    {"fg": s:yellow})
