@@ -29,7 +29,7 @@ let s:lighter_gray    = { "gui": "#D6D6D6", "cterm": "251" }
 let s:lightest_gray   = { "gui": "#EEEEEE", "cterm": "255" }
 let s:dark_pink       = { "gui": "#ff5f87", "cterm": "204" }
 let s:light_pink      = { "gui": "#d75f87", "cterm": "168" }
-let s:dark_red        = { "gui": "#CC0A0A", "cterm": "1"   }
+let s:dark_red        = { "gui": "#FF383F", "cterm": "1"   }
 let s:light_red       = { "gui": "#E32791", "cterm": "1"   }
 let s:orange          = { "gui": "#D75F5F", "cterm": "167" }
 let s:darker_blue     = { "gui": "#005F87", "cterm": "18"  }
@@ -165,7 +165,7 @@ call s:h("DiffChange",    {"fg": s:dark_yellow})
 call s:h("DiffText",      {"fg": s:dark_blue})
 call s:h("SignColumn",    {"fg": s:light_green})
 
-call s:h("SpellBad",    {"cterm": "underline", "gui": "underline", "fg": s:dark_red})
+call s:h("SpellBad",    {"cterm": "underline", "gui": "bold", "fg": s:dark_red})
 call s:h("SpellCap",    {"cterm": "underline", "gui": "underline", "fg": s:light_green})
 call s:h("SpellRare",   {"cterm": "underline", "gui": "underline", "fg": s:light_purple})
 call s:h("SpellLocal",  {"cterm": "underline", "gui": "underline", "fg": s:dark_green})
