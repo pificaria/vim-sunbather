@@ -25,7 +25,7 @@ let s:subtle_black    = { "gui": "#0A0A0A", "cterm": "233" }
 let s:light_black     = { "gui": "#262626", "cterm": "235" }
 let s:lighter_black   = { "gui": "#4E4E4E", "cterm": "239" }
 let s:light_gray      = { "gui": "#A8A8A8", "cterm": "248" }
-let s:lighter_gray    = { "gui": "#D6D6D6", "cterm": "251" }
+let s:lighter_gray    = { "gui": "#CFCFCF", "cterm": "251" }
 let s:lightest_gray   = { "gui": "#EEEEEE", "cterm": "255" }
 let s:dark_pink       = { "gui": "#ff5f87", "cterm": "204" }
 let s:light_pink      = { "gui": "#d75f87", "cterm": "168" }
@@ -221,3 +221,8 @@ hi link GitGutterAdd                LineNr
 hi link GitGutterDelete             LineNr
 hi link GitGutterChange             LineNr
 hi link GitGutterChangeDelete       LineNr
+
+" TreeSitter
+call s:h("TSStrong",       {"fg": s:actual_white, "gui": "NONE", "cterm": "NONE"})
+call s:h("TSPunctSpecial", {"fg": s:lighter_black, "gui": "italic"})
+call s:h("TSPunctDelimiter", {"fg": s:lighter_black, "gui": "italic"})
