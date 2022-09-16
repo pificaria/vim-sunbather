@@ -226,3 +226,7 @@ hi link GitGutterChangeDelete       LineNr
 call s:h("TSStrong",       {"fg": s:actual_white, "gui": "NONE", "cterm": "NONE"})
 call s:h("TSPunctSpecial", {"fg": s:lighter_black, "gui": "italic"})
 call s:h("TSPunctDelimiter", {"fg": s:lighter_black, "gui": "italic"})
+
+" Telescope
+call s:h("TelescopeBorder", {"fg": s:subtle_black})
+call s:h("TelescopeTitle", {"fg": s:pink})
