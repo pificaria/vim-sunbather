@@ -222,6 +222,9 @@ hi link GitGutterDelete             LineNr
 hi link GitGutterChange             LineNr
 hi link GitGutterChangeDelete       LineNr
 
+" Listchars
+call s:h("NonText", {"fg": s:light_black})
+
 " TreeSitter
 call s:h("TSStrong",       {"fg": s:actual_white, "gui": "NONE", "cterm": "NONE"})
 call s:h("TSPunctSpecial", {"fg": s:lighter_black, "gui": "italic"})
