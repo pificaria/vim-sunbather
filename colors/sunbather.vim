@@ -32,6 +32,7 @@ let s:light_pink      = { "gui": "#d75f87", "cterm": "168" }
 let s:dark_red        = { "gui": "#FF383F", "cterm": "1"   }
 let s:light_red       = { "gui": "#E32791", "cterm": "1"   }
 let s:orange          = { "gui": "#D75F5F", "cterm": "167" }
+let s:light_orange    = { "gui": "#FFC259", "cterm": "167" }
 let s:darker_blue     = { "gui": "#005F87", "cterm": "18"  }
 let s:dark_blue       = { "gui": "#008EC4", "cterm": "32"  }
 let s:blue            = { "gui": "#20BBFC", "cterm": "12"  }
@@ -83,6 +84,7 @@ function! s:h(group, style)
     \ "ctermfg=" (has_key(a:style, "fg")    ? a:style.fg.cterm : "NONE")
     \ "ctermbg=" (has_key(a:style, "bg")    ? a:style.bg.cterm : "NONE")
     \ "cterm="   (has_key(a:style, "cterm") ? a:style.cterm    : "NONE")
+	\ "blend="   (has_key(a:style, "blend") ? a:style.blend   : "0")
 endfunction
 
 call s:h("Normal",        {"fg": s:norm})
@@ -226,10 +228,23 @@ hi link GitGutterChangeDelete       LineNr
 call s:h("NonText", {"fg": s:light_black})
 
 " TreeSitter
-call s:h("TSStrong",       {"fg": s:actual_white, "gui": "NONE", "cterm": "NONE"})
+call s:h("TSStrong",       {"fg": s:light_orange, "gui": "NONE", "cterm": "NONE"})
+call s:h("TSEmphasis",     {"gui": "italic"})
 call s:h("TSPunctSpecial", {"fg": s:lighter_black, "gui": "italic"})
 call s:h("TSPunctDelimiter", {"fg": s:lighter_black, "gui": "italic"})
+
+hi link @text.emphasis TSEmphasis
+hi link @text.strong TSStrong
+hi link @text.reference String
+hi link @text.literal String
+hi link @text.title Title
+hi link @punctuation.delimiter TSPunctDelimiter
+hi link @punctuation.special   TSPunctSpecial
 
 " Telescope
 call s:h("TelescopeBorder", {"fg": s:subtle_black})
 call s:h("TelescopeTitle", {"fg": s:pink})
+
+" Latex
+call s:h("texMathZone", {"fg": s:light_pink, "gui": "italic"})
+hi link texMathDelimZone TSPunctDelimiter
